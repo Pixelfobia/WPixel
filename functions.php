@@ -11,10 +11,9 @@ function wpixel_enqueue_scripts() {
 	wp_register_script( 'main-js', get_template_directory_uri() . '/assets/main.js', [], filemtime( get_template_directory() . '/assets/main.js' ), true );
 	
 	wp_enqueue_style('style-css' );
-	wp_enqueue_script( 'main-js' );
+	wp_enqueue_script( 'main-js');
 }
 
 add_action('wp_enqueue_scripts', 'wpixel_enqueue_scripts' );
-
  
- ?>
+?>
