@@ -6,6 +6,7 @@
  */
 
  ?>
+ 
 <a class="navbar-brand d-block d-sm-block d-md-none text-center pt-4" href="index.html">
 	<img src="images/logos/CineclubblancoCortoP.svg" alt="" width="65" height="auto">
 </a>
@@ -14,6 +15,11 @@
 			<a class="navbar-brand d-none d-md-block me-5" href="index.html">
 				<img src="images/logos/CineclubblancoLargocompleto.svg" alt="" width="155" height="auto">
 			</a>
+			<?php
+ 			if ( function_exists( 'the_custom_logo')){ 
+	 		the_custom_logo();
+ 			}
+ 			?>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
 					<li class="nav-item dropdown">
