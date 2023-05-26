@@ -14,6 +14,7 @@
  }
 
 require_once WPIXEL_DIR_PATH . '/inc/helpers/autoloader.php';
+require_once WPIXEL_DIR_PATH . '/inc/helpers/template-tags.php';
 
 function wpixel_get_theme_instance() {
 	\WPIXEL_THEME\Inc\WPIXEL_THEME::get_instance();
