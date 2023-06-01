@@ -22,12 +22,13 @@
 					* Actions.
 					*/
 				 add_action( 'widgets_init', [ $this, 'register_sidebars' ] );
+				 add_action( 'widgets_init', [ $this, 'register_clock_widget' ] );
 		 }
 
 		 public function register_sidebars() {
 			 register_sidebar(
 				 [
-					 'name'          => __( 'Sidebar', 'wpixel' ),
+					 'name'          => esc_html__( 'Sidebar', 'wpixel' ),
 					 'id'            => 'sidebar-1',
 					 'description'   => __( 'Main Sidebar', 'wpixel' ),
 					 'before_widget' => '<section id="%1$s" class="widget widget-sidebar %2$s">',
@@ -38,7 +39,7 @@
 			 );
 			 register_sidebar(
 				[
-					'name'          => __( 'Footer', 'wpixel' ),
+					'name'          => esc_html__( 'Footer', 'wpixel' ),
 					'id'            => 'sidebar-2',
 					'description'   => __( 'Footer Sidebar', 'wpixel' ),
 					'before_widget' => '<section id="%1$s" class="widget widget-footer cell column %2$s">',
@@ -49,5 +50,8 @@
 			);
 			
 
+		 }
+		 public function register_clock_widget() {
+			 register_widget( 'WPIXEL_THEME\Inc\Clock_Widget' );
 		 }
  }
