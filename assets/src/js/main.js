@@ -1,7 +1,7 @@
 import './clock';
 
-// // Styles
-// // import '../sass/main.scss';
+// Styles
+import '../sass/main.scss';
 
 // Images
 import '../img/goya.jpg'; 

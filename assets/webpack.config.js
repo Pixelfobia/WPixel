@@ -13,6 +13,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 // JS Directory path.
 const JS_DIR = path.resolve( __dirname, 'src/js' );
 const IMG_DIR = path.resolve( __dirname, 'src/img' );
+// const LIB_DIR = path.resolve( __dirname, 'src/library' );
 const BUILD_DIR = path.resolve( __dirname, 'build' );
 
 const entry = {
@@ -51,6 +52,7 @@ const rules = [
 		use: [
 			MiniCssExtractPlugin.loader,
 			'css-loader',
+			'sass-loader',
 		]
 	},
 	{
