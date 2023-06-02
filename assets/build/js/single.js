@@ -1,0 +1,3 @@
+/*! For license information please see single.js.LICENSE.txt */
+!function(){"use strict";var e={"./src/sass/single.scss":function(e,r,s){s.r(r)}},r={};function s(t){var n=r[t];if(void 0!==n)return n.exports;var o=r[t]={exports:{}};return e[t](o,o.exports,s),o.exports}s.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})};var t={};!function(){s.r(t);s("./src/sass/single.scss")}()}();
+//# sourceMappingURL=single.js.map
