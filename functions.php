@@ -46,9 +46,13 @@ function wpixel_get_theme_instance() {
 
 wpixel_get_theme_instance();
 
-function wpixel_enqueue_scripts() {
-}
+// Remove Gutenberg Block Library CSS from loading on the frontend
+// function ebayads_remove_block_styles() {
+// 	wp_dequeue_style( 'wp-block-library' );
+// 	wp_dequeue_style( 'wp-block-library-theme' );
+// 	wp_dequeue_style( 'wc-block-style' ); // Remove WooCommerce block CSS
+// }
 
-add_action('wp_enqueue_scripts', 'wpixel_enqueue_scripts' );
+// add_action('wp_enqueue_scripts', 'ebayads_remove_block_styles', 100 );
  
 ?>
