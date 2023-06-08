@@ -6,7 +6,8 @@
   "scripts": {
     "prod": "cross-env NODE_ENV=production webpack --mode production --progress",
     "dev": "cross-env NODE_ENV=development webpack --watch --mode development --progress",
-    "clean": "rm -rf build/*"
+    "clean": "rm -rf build/*",
+    "svg": "svgr -d src/js/icons src/icons"
   },
   "keywords": [
     "WordPress",
@@ -27,6 +28,7 @@
     "@babel/core": "^7.22.1",
     "@babel/preset-env": "^7.22.4",
     "@babel/preset-react": "^7.22.3",
+    "@svgr/cli": "^8.0.1",
     "@wordpress/base-styles": "^4.26.0",
     "@wordpress/block-editor": "^12.3.0",
     "@wordpress/blocks": "^12.12.0",
