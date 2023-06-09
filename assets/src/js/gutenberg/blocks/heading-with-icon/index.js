@@ -17,10 +17,6 @@ import Edit from './edit';
  */
 import { getIconComponent } from './icons-map';
 
-
-
-
-
 /**
  * Register block type.
  */
@@ -55,13 +51,13 @@ registerBlockType( 'wpixel-blocks/heading', {
 	attributes: {
 		option: {
 			type: 'string',
-			default: 'dos'
-	},
+			default: 'dos',
+		},
 		content: {
 			type: 'string',
 			source: 'html',
 			selector: 'h4',
-			default: __( 'Dos', 'wpixel' )
+			default: __( 'Dos', 'wpixel' ),
 		},
 	},
 	edit: Edit,
@@ -69,8 +65,11 @@ registerBlockType( 'wpixel-blocks/heading', {
 	/**
 	 * Save function.
 	 *
-	 * @param {Object} props Props
+	 * @param {Object} props                    Props
 	 *
+	 * @param          props.attributes
+	 * @param          props.attributes.option
+	 * @param          props.attributes.content
 	 * @return {Object} Content.
 	 */
 	save( { attributes: { option, content } } ) {
@@ -79,12 +78,11 @@ registerBlockType( 'wpixel-blocks/heading', {
 		return (
 			<div className="wpixel-icon-heading">
 				<span className="wpixel-icon-heading__heading">
-					<HeadingIcon/>
+					<HeadingIcon />
 				</span>
-				{ /* Saves <h2>Content added in the editor...</h2> to the database for frontend display */ }
+				{/* Saves <h2>Content added in the editor...</h2> to the database for frontend display */}
 				<RichText.Content tagName="h4" value={content} />
 			</div>
 		);
 	},
 } );
-
