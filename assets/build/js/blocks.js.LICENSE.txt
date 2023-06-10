@@ -8,6 +8,8 @@
 
 /*! ./edit */
 
+/*! ./gutenberg/block-extensions/register-block-styles */
+
 /*! ./gutenberg/blocks/dos-and-donts */
 
 /*! ./gutenberg/blocks/heading-with-icon */
@@ -89,3 +91,7 @@
 /*!****************************************************************!*\
   !*** ./src/js/gutenberg/blocks/heading-with-icon/icons-map.js ***!
   \****************************************************************/
+
+/*!********************************************************************!*\
+  !*** ./src/js/gutenberg/block-extensions/register-block-styles.js ***!
+  \********************************************************************/
