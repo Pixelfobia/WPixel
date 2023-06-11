@@ -29,6 +29,7 @@
 				get_template_part( 'template-parts/components/posts-carousel' );
 
 				?>
+				<?php get_search_form(); ?>
 				</div>
 		</main>
 	</div>
