@@ -8,6 +8,7 @@ const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 // const nano = require( 'nano-css' ); // https://cssnano.co/
 const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const TerserPlugin = require("terser-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin'); // https://webpack.js.org/plugins/copy-webpack-plugin/
 const DependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
 // const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
 
@@ -34,12 +35,17 @@ const output = {
  */
 const plugins = ( argv ) => [
 	new CleanWebpackPlugin( {
-		cleanStaleWebpackAssets: ( argv.mode === 'production' ) // Automatically remove all unused webpack assets on rebuild, when set to true in production. ( https://www.npmjs.com/package/clean-webpack-plugin#options-and-defaults-optional )
+		cleanStaleWebpackAssets: ( 'production' === argv.mode ) // Automatically remove all unused webpack assets on rebuild, when set to true in production. ( https://www.npmjs.com/package/clean-webpack-plugin#options-and-defaults-optional )
 	} ),
 
 	new MiniCssExtractPlugin( {
 		filename: 'css/[name].css'
 	} ),
+	new CopyPlugin( {
+		patterns: [
+			{ from: LIB_DIR, to: BUILD_DIR + '/library' }
+		]
+	}),
 	new DependencyExtractionWebpackPlugin( {
 		injectPolyfill: true,
 		combineAssets: true
