@@ -50,6 +50,7 @@ function wpixel_get_theme_instance() {
 
 wpixel_get_theme_instance();
 
+
 // Remove Gutenberg Block Library CSS from loading on the frontend
 // function ebayads_remove_block_styles() {
 // 	wp_dequeue_style( 'wp-block-library' );
