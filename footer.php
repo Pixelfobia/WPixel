@@ -47,6 +47,7 @@
 </div>
 
 <?php 
+// if ( is_active_sidebar( 'sidebar-1' ) ) {
 get_template_part( 'template-parts/content', 'svgs' );
 wp_footer(); 
 ?>
