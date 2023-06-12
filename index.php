@@ -62,12 +62,10 @@ get_header();
 					get_template_part( 'template-parts/content-none' );
 
 			endif;
-		?>
-		<div class="container">
-				<?php
-				wpixel_pagination();
-				?>
-			</div>
+	
+			wpixel_pagination();
+			?>
+		
 		</main>
 	</div>
 	
