@@ -83,6 +83,9 @@ function wpixel_posted_by() {
 }
 
 function wpixel_the_excerpt( $trim_character_count = 0 ) {
+	
+	$post_ID = get_the_ID();
+	
 	if ( ! has_excerpt() || 0 === $trim_character_count ) {
 		the_excerpt();
 		return;
