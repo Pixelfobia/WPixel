@@ -36,14 +36,23 @@ get_header();
 								endwhile;
 								?>
 							
-							</div>
 							<?php
 
 							else :
 								get_template_part( 'template-parts/content-none' );
 
+								?>
+							</div>
+							<?php
 						endif;
+
+						// For Single Post loadmore button, uncomment this code and comment next and prev link code below.
+						echo do_shortcode('[single_post_listings]')
 						?>
+				</div>
+				<?php
+				// Next and previous link for page navigation.
+				?>
 						<!-- Next and Previous Post Links -->
 				<div class="prev-link"><?php previous_post_link(); ?></div>
 				<div class="next-link"><?php next_post_link(); ?></div>
