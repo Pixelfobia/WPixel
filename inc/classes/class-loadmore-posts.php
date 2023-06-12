@@ -33,7 +33,7 @@ class Loadmore_Posts {
 		 *
 		 * Usage echo do_shortcode('[post_listings]');
 		 */
-		// add_shortcode( 'post_listings', [ $this, 'post_script_load_more' ] );
+		add_shortcode( 'post_listings', [ $this, 'post_script_load_more' ] );
 	}
 
 	/**
@@ -77,13 +77,13 @@ class Loadmore_Posts {
 			endwhile;
 
 			// Pagination for Google.
-			// if ( ! $is_ajax_request ) :
-			// 	$total_pages = $query->max_num_pages;
-			// 	get_template_part( 'template-parts/common/pagination', null, [
-			// 		'total_pages'  => $total_pages,
-			// 		'current_page' => $page_no,
-			// 	] );
-			// endif;
+			if ( ! $is_ajax_request ) :
+				$total_pages = $query->max_num_pages;
+				get_template_part( 'template-parts/common/pagination', null, [
+					'total_pages'  => $total_pages,
+					'current_page' => $page_no,
+				] );
+			endif;
 		else:
 			// Return response as zero, when no post found.
 			wp_die( '0' );
