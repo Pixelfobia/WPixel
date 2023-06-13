@@ -32,12 +32,19 @@
 				 wp_register_style( 'slick-css', WPIXEL_DIR_URI . '/assets/src/library/css/slick.css', [], false, 'all' );
 				 wp_register_style( 'slick-theme-css', WPIXEL_DIR_URI . '/assets/src/library/css/slick-theme.css', ['slick-css'], false, 'all' );
 				 wp_register_style( 'main-css', WPIXEL_BUILD_CSS_URI . '/main.css', ['bootstrap-css'], filemtime( WPIXEL_BUILD_CSS_DIR_PATH . '/main.css' ), 'all' );
+				 wp_register_style( 'search-css', WPIXEL_BUILD_CSS_URI . '/search.css', [], filemtime( WPIXEL_BUILD_CSS_DIR_PATH . '/search.css' ), 'all' );
 
 				 // Enqueue Styles
 				 wp_enqueue_style('bootstrap-css' );
 				 wp_enqueue_style('slick-css' );
 				 wp_enqueue_style('slick-theme-css' );
 				 wp_enqueue_style('main-css' );
+
+				 // If search page
+				 if( is_page( 'search' ) ) {
+					 wp_enqueue_style('search-css' );
+				 }
+
 				}
 
 		 public function register_scripts() {
@@ -47,6 +54,7 @@
 				 wp_register_script( 'single-js', WPIXEL_BUILD_JS_URI . '/single.js', [ 'jquery', 'slick-js' ], filemtime( WPIXEL_BUILD_JS_DIR_PATH . '/single.js' ), true );
 				 wp_register_script( 'author-js', WPIXEL_BUILD_JS_URI . '/author.js', [ 'jquery' ], filemtime( WPIXEL_BUILD_JS_DIR_PATH . '/author.js' ), true );
 				 wp_register_script( 'bootstrap-js', WPIXEL_DIR_URI . '/assets/src/library/js/bootstrap.min.js', [ 'jquery' ], false, true );
+				 wp_register_script( 'search-js', WPIXEL_BUILD_JS_URI . '/search.js', [ 'main-js' ], filemtime( WPIXEL_BUILD_JS_DIR_PATH . '/search.js' ), true );
 
 				 // Enqueue Scripts
 				 wp_enqueue_script('main-js' );
@@ -58,9 +66,22 @@
 					 wp_enqueue_script('single-js' );
 				 }
 
-				 // If author page
+				 // If author archive page
 				 if ( is_author() ) {
 					 wp_enqueue_script('author-js' );
+				 }
+
+				 // If search page
+				 if( is_page( 'search' ) ) {
+						$filters_data = get_filters_data();
+						wp_enqueue_script('search-js' );
+						wp_localize_script('search-js', 'search_settings',
+							[
+								'rest_api_url' => home_url( '/wp-json/af/v1/search' ),
+								'root_url' => home_url( 'search' ),
+								'filter_ids' => get_filter_ids( $filters_data ),
+							]
+						);
 				 }
 
 				 // Localize Scripts
