@@ -49,7 +49,19 @@
 	echo get_the_post_custom_thumbnail( $post_id, $size, $additional_attributes );
  }
 
+/**
+ * Prints HTML with meta information for the current post-date/time.
+ *
+ * @return void
+ */
 function wpixel_posted_on() {
+	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+
+	$year                        = get_the_date( 'Y' );
+	$month                       = get_the_date( 'n' );
+	$day                         = get_the_date( 'j' );
+	$post_date_archive_permalink = get_day_link( $year, $month, $day );
+
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 
 	// Post is modified ( when post published time is not equal to post modified time )
@@ -73,6 +85,12 @@ function wpixel_posted_on() {
 	echo '<span class="posted-on text-secondary">' . $posted_on . '</span>';
 }
 
+
+/**
+ * Prints HTML with meta information for the current author.
+ *
+ * @return void
+ */
 function wpixel_posted_by() {
 	$byline = sprintf(
 		esc_html_x( ' por %s', 'post author', 'wpixel' ),
