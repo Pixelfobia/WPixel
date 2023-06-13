@@ -45,6 +45,7 @@
 				 wp_register_script( 'slick-js', WPIXEL_DIR_URI . '/assets/src/library/js/slick.min.js', ['jquery'], false, true );
 				 wp_register_script( 'main-js', WPIXEL_BUILD_JS_URI . '/main.js', [ 'jquery', 'slick-js' ], filemtime( WPIXEL_BUILD_JS_DIR_PATH . '/main.js' ), true );
 				 wp_register_script( 'single-js', WPIXEL_BUILD_JS_URI . '/single.js', [ 'jquery', 'slick-js' ], filemtime( WPIXEL_BUILD_JS_DIR_PATH . '/single.js' ), true );
+				 wp_register_script( 'author-js', WPIXEL_BUILD_JS_URI . '/author.js', [ 'jquery' ], filemtime( WPIXEL_BUILD_JS_DIR_PATH . '/author.js' ), true );
 				 wp_register_script( 'bootstrap-js', WPIXEL_DIR_URI . '/assets/src/library/js/bootstrap.min.js', [ 'jquery' ], false, true );
 
 				 // Enqueue Scripts
@@ -55,6 +56,11 @@
 				 // If single post page
 				 if ( is_single() ) {
 					 wp_enqueue_script('single-js' );
+				 }
+
+				 // If author page
+				 if ( is_author() ) {
+					 wp_enqueue_script('author-js' );
 				 }
 
 				 // Localize Scripts
